@@ -58,7 +58,19 @@ namespace Heaps_Demo
 
             Console.WriteLine();
 
+            Console.Write("   Here is our binary tree: ");
+
             binaryTree.printNodeData(binaryTree.Root);
+
+            Console.WriteLine();
+
+            // STEP 3
+
+            /*
+             * 
+             * ARrange the binary tree into a max-heap.
+             * 
+            */
         }
     }
 }
