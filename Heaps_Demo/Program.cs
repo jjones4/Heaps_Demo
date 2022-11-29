@@ -14,24 +14,18 @@ namespace Heaps_Demo
              * 
              * Set up some random data in an array.
              * 
-             * Make the array a random length from 1 to 19,
-             * and fill it with random numbers from 0 to 19.
+             * Create the array with a length of 10,
+             * and fill it with random numbers from 0 to 50.
              * 
             */
             Random rnd = new Random();
-
-            int numberOfNodes = rnd.Next(19) + 1;
-
-            Console.WriteLine($"   The length of our data is: {numberOfNodes}\n");
+            int[] data = new int[10];
 
             Console.Write("   Our initial data array is: ");
             
-            int[] data = new int[numberOfNodes];
-            
-            for (int i = 0; i < numberOfNodes; i++)
+            for (int i = 0; i < data.Length; i++)
             {
-                data[i] = rnd.Next(20);
-
+                data[i] = rnd.Next(40) + 10;
                 Console.Write($"{data[i]} ");
             }
 
@@ -45,19 +39,37 @@ namespace Heaps_Demo
              * Create a binary tree from the array data.
              * 
             */
-            int lastNonLeafNode = (numberOfNodes / 2) - 1;
-
-            Console.WriteLine($"   The last non-leaf node index is: {lastNonLeafNode}");
-
             BinaryTree binaryTree = new BinaryTree();
 
             binaryTree.Root = binaryTree.buildBinaryTree(data, 0);
 
-            Console.WriteLine();
+            // Check to make sure our binary tree has all the data
+            Console.WriteLine("   Our binary tree is:\n");
 
-            Console.Write("   Here is our binary tree: ");
+            for (int i = 0; i < 4; i++)
+            {
+                if (i == 0)
+                {
+                    Console.WriteLine($"                  {binaryTree.Root.Data}");
+                    Console.WriteLine("                 /  \\");
+                }
+                if (i == 1)
+                {
+                    Console.WriteLine($"           {binaryTree.Root.LeftNode.Data}            {binaryTree.Root.RightNode.Data}");
+                    Console.WriteLine("          /  \\          /  \\");
+                }
+                if (i == 2)
+                {
+                    Console.WriteLine($"       {binaryTree.Root.LeftNode.LeftNode.Data}      {binaryTree.Root.LeftNode.RightNode.Data}     {binaryTree.Root.RightNode.LeftNode.Data}    {binaryTree.Root.RightNode.RightNode.Data}");
+                    Console.WriteLine("      /  \\    /  \\   /  \\  /  \\  /  \\");
 
-            binaryTree.printNodeData(binaryTree.Root);
+                }
+                if (i == 3)
+                {
+                    Console.WriteLine($"     {binaryTree.Root.LeftNode.LeftNode.LeftNode.Data}  {binaryTree.Root.LeftNode.LeftNode.RightNode.Data}  {binaryTree.Root.LeftNode.RightNode.LeftNode.Data}");
+
+                }
+            }
 
             Console.WriteLine();
 
@@ -65,9 +77,39 @@ namespace Heaps_Demo
 
             /*
              * 
-             * ARrange the binary tree into a min-heap.
+             * Heapify the binary tree (max-heap).
              * 
             */
+            Console.WriteLine("   After heapify, our binary tree is:\n");
+
+            binaryTree.heapifyTree(binaryTree.Root);
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (i == 0)
+                {
+                    Console.WriteLine($"                  {binaryTree.Root.Data}");
+                    Console.WriteLine("                 /  \\");
+                }
+                if (i == 1)
+                {
+                    Console.WriteLine($"           {binaryTree.Root.LeftNode.Data}            {binaryTree.Root.RightNode.Data}");
+                    Console.WriteLine("          /  \\          /  \\");
+                }
+                if (i == 2)
+                {
+                    Console.WriteLine($"       {binaryTree.Root.LeftNode.LeftNode.Data}      {binaryTree.Root.LeftNode.RightNode.Data}     {binaryTree.Root.RightNode.LeftNode.Data}    {binaryTree.Root.RightNode.RightNode.Data}");
+                    Console.WriteLine("      /  \\    /  \\   /  \\  /  \\  /  \\");
+
+                }
+                if (i == 3)
+                {
+                    Console.WriteLine($"     {binaryTree.Root.LeftNode.LeftNode.LeftNode.Data}  {binaryTree.Root.LeftNode.LeftNode.RightNode.Data}  {binaryTree.Root.LeftNode.RightNode.LeftNode.Data}");
+
+                }
+            }
+
+            Console.WriteLine();
         }
     }
 }

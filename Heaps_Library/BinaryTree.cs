@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,19 +22,74 @@ namespace Heaps_Library
                 next.LeftNode = buildBinaryTree(arr, 2 * i + 1);
 
                 next.RightNode = buildBinaryTree(arr, 2 * i + 2);
-
             }
 
             return next;
         }
 
-        public void printNodeData(Node root)
+        public void viewNodeData(Node root)
         {
             if (root != null)
             {
-                printNodeData(root.LeftNode);
+                viewNodeData(root.LeftNode);
+
                 Console.Write(root.Data + " ");
-                printNodeData(root.RightNode);
+
+                viewNodeData(root.RightNode);
+            }
+        }
+
+        public void heapifyTree(Node root)
+        {
+            if (root != null)
+            {
+                heapifyTree(root.LeftNode);
+
+                heapifyTree(root.RightNode);
+
+                if (root.LeftNode == null && root.RightNode == null)
+                {
+                    return;
+                }
+                else if (root.LeftNode != null && root.RightNode == null)
+                {
+                    if (root.Data >= root.LeftNode.Data)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        int temp = root.Data;
+                        root.Data = root.LeftNode.Data;
+                        root.LeftNode.Data = temp;
+
+                        heapifyTree(root);
+                    }
+                }
+                else if (root.LeftNode != null & root.RightNode != null)
+                {
+                    if (root.Data >= root.LeftNode.Data && root.Data >= root.RightNode.Data)
+                    {
+                        return;
+                    }
+
+                    if (root.LeftNode.Data > root.RightNode.Data)
+                    {
+                        int temp = root.Data;
+                        root.Data = root.LeftNode.Data;
+                        root.LeftNode.Data = temp;
+
+                        heapifyTree(root);
+                    }
+                    else if (root.LeftNode.Data <= root.RightNode.Data)
+                    {
+                        int temp = root.Data;
+                        root.Data = root.RightNode.Data;
+                        root.RightNode.Data = temp;
+
+                        heapifyTree(root);
+                    }
+                }
             }
         }
     }
