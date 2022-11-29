@@ -1,6 +1,6 @@
 # Heaps_Demo
 Heaps Demonstration
-- Heapify (max heap)
+- Heapify (min heap)
 - Merge
 - Search
 
