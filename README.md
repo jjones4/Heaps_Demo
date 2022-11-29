@@ -1,8 +1,7 @@
 # Heaps_Demo
 Heaps Demonstration
-- Heapify (min-heap)
-- Merge (in progress)
-- Search (in progress)
+- Build a binary tree from an array
+- Heapify the binary tree (max-heap)
 
 <br>
 
