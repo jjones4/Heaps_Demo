@@ -15,7 +15,7 @@ namespace Heaps_Demo
              * Set up some random data in an array.
              * 
              * Create the array with a length of 10,
-             * and fill it with random numbers from 0 to 50.
+             * and fill it with random numbers from 10 to 50.
              * 
             */
             Random rnd = new Random();
