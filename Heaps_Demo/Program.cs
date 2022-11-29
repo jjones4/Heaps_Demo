@@ -99,7 +99,7 @@ namespace Heaps_Demo
                 if (i == 2)
                 {
                     Console.WriteLine($"       {binaryTree.Root.LeftNode.LeftNode.Data}      {binaryTree.Root.LeftNode.RightNode.Data}     {binaryTree.Root.RightNode.LeftNode.Data}    {binaryTree.Root.RightNode.RightNode.Data}");
-                    Console.WriteLine("      /  \\    /  \\   /  \\  /  \\  /  \\");
+                    Console.WriteLine("      /  \\    /  \\   /  \\  /  \\");
 
                 }
                 if (i == 3)
