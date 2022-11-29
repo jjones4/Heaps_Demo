@@ -1,4 +1,6 @@
-﻿namespace Heaps_Demo
+﻿using Heaps_Library;
+
+namespace Heaps_Demo
 {
     internal class Program
     {
@@ -18,14 +20,15 @@
             */
             Random rnd = new Random();
 
-            int numberOfNodes = rnd.Next(20);
+            int numberOfNodes = rnd.Next(19) + 1;
 
             Console.WriteLine($"   The length of our data is: {numberOfNodes}\n");
 
             Console.Write("   Our initial data array is: [ ");
 
+            
             int[] data = new int[numberOfNodes];
-
+            
             for (int i = 0; i < numberOfNodes; i++)
             {
                 data[i] = rnd.Next(20);
@@ -36,14 +39,26 @@
             Console.Write("]");
 
             Console.WriteLine();
+            Console.WriteLine();
 
             // STEP 2
 
             /*
              * 
-             * Create our binary tree from the array data.
+             * Create a binary tree from the array data.
              * 
             */
+            int lastNonLeafNode = (numberOfNodes / 2) - 1;
+
+            Console.WriteLine($"   The last non-leaf node index is: {lastNonLeafNode}");
+
+            BinaryTree binaryTree = new BinaryTree();
+
+            binaryTree.Root = binaryTree.buildBinaryTree(data, 0);
+
+            Console.WriteLine();
+
+            binaryTree.printNodeData(binaryTree.Root);
         }
     }
 }
