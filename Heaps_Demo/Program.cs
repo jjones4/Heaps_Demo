@@ -14,7 +14,7 @@ namespace Heaps_Demo
              * 
              * Set up some random data in an array.
              * 
-             * Make the array a random length from 0 to 19,
+             * Make the array a random length from 1 to 19,
              * and fill it with random numbers from 0 to 19.
              * 
             */
