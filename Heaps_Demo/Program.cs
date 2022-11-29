@@ -24,8 +24,7 @@ namespace Heaps_Demo
 
             Console.WriteLine($"   The length of our data is: {numberOfNodes}\n");
 
-            Console.Write("   Our initial data array is: [ ");
-
+            Console.Write("   Our initial data array is: ");
             
             int[] data = new int[numberOfNodes];
             
@@ -35,8 +34,6 @@ namespace Heaps_Demo
 
                 Console.Write($"{data[i]} ");
             }
-
-            Console.Write("]");
 
             Console.WriteLine();
             Console.WriteLine();
@@ -68,7 +65,7 @@ namespace Heaps_Demo
 
             /*
              * 
-             * ARrange the binary tree into a max-heap.
+             * ARrange the binary tree into a min-heap.
              * 
             */
         }
