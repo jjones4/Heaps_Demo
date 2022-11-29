@@ -1,6 +1,6 @@
 # Heaps_Demo
 Heaps Demonstration
-- Heapify (min heap)
+- Heapify (min-heap)
 - Merge (in progress)
 - Search (in progress)
 
